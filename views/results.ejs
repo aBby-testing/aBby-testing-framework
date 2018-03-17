@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Table</h2>
+  <p>Results table, we need to display the data / other counts/ metrics that we are collecting. </p>                                                                                      
+  <div class="table-responsive">          
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Pages Load Count</th>
+        <th>Total Click Count</th>
+        <th>Total Unique Visitors</th>
+        <th>% of Second Page Visitors</th>
+        <th>Bucket</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1124</td>
+        <td>875</td>
+        <td>900</td>
+        <td>65%</td>
+        <td>Layout 1</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<!-- <div>
+    <%=
+      var table = document.createElement('table'), tr, td, row, cell;
+      for (row = 0; row < 10; row++) {
+        tr = document.createElement('tr');
+        for (cell = 0; cell < 22; cell++) {
+            td = document.createElement('td');
+            tr.appendChild(td);
+            td.innerHTML = row * 22 + cell + 1;
+        }
+        table.appendChild(tr);
+    }
+    document.getElementById('container').appendChild(table);
+     %>
+</div> -->
+
+</body>
+</html>
