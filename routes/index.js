@@ -4,15 +4,29 @@ var uuidv4 = require('uuid/v4');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  var visitor = req.cookies.visitor;
-  if (!visitor) {
-    visitor = uuidv4();
-    res.cookie('visitor', visitor);
+  var visitorCookie = req.cookies.visitor.id;
+  if (!visitorCookie) {
+    visitorID = uuidv4();
+    
+    var visitCount = 0;
+    
+    var visitor = {
+      'id' : visitorID,
+      'visitCount' : visitCount
+    };
+        
+    res.cookie('visitor.id', visitorID);
   }
 
-  console.log("welcome visitor " + visitor);
+  var index = chooseLayout(visitor.id);
 
-  res.render('index', { title: 'Express' });
+  console.log("welcome visitor " + visitorCookie);
+
+  res.render(index, { title: 'Express' });
 });
+
+function chooseLayout(visitorID) {
+  return (visitorID % 2 ? 'indexA' : 'indexB');
+}
 
 module.exports = router;
