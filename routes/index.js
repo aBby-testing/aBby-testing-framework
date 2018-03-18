@@ -25,7 +25,6 @@ router.get('/', function(req, res, next) {
     visitorCookie.firstTimeUser = 'False';
     visitorCookie.visitCount++;
   };
-  console.log(visitorCookie);
 
   var index = chooseLayout(visitorCookie.id);
 

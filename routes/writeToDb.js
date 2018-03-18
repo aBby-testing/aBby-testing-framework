@@ -14,9 +14,9 @@ router.post('/', function(req, res, next) {
         console.log("visitor data:");
         console.log(visitorData);
 
-        console.log("Visitor data written?");
+        console.log("Visitor data written");
         
-        res.redirect('/writeToDb');
+        res.redirect('/');
     }); 
 
     }
@@ -33,8 +33,6 @@ router.get('/', function(req, res, next) {
     	models.Visitor.create(visitorData).then(function(newUser) {
         console.log("visitor data:");
         console.log(visitorData);
-
-        console.log("Visitor data written?");
         
         res.redirect('/');
     }); 
