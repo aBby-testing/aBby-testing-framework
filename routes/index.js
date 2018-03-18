@@ -3,6 +3,11 @@ var router = express.Router();
 var uuidv4 = require('uuid/v4');
 
 router.get('/', function(req, res, next) {
+    res.render('./indexB', { title: 'Results' });
+});
+
+router.get('/', function(req, res, next) {
+
 
   var visitorCookie = req.cookies.visitorCookie;
   var currentTime = new Date().toISOString();
