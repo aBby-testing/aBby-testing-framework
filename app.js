@@ -29,6 +29,7 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var results = require('./routes/results');
 var writeToDb = require('./routes/writeToDb');
+var landing = require('./routes/landing');
 
 var app = express();
 
@@ -47,10 +48,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/assets', express.static(path.join(__dirname,'/assets')));
 
-app.use('/', index);
+app.use('/', landing);
 app.use('/users', users);
 app.use('/results', results);
 app.use('/writeToDb', writeToDb);
+app.use('/index', index);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
