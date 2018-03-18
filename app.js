@@ -6,6 +6,20 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var simple_statistics = require('simple-statistics');
 
+var Sequelize = require('sequelize');
+var sequelize = new Sequelize('shallot_development', 'root', '', {
+    host: 'localhost',
+    dialect: 'mysql',
+});
+
+var test = sequelize.authenticate()
+    .then(function() {
+        console.log("Connected to database");
+    })
+    .catch(function(err) {
+        console.log("app.js:19 Error: cannot connect to database")
+    })
+    .done();
 
 var index = require('./routes/index');
 var users = require('./routes/users');

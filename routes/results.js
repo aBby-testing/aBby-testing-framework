@@ -18,6 +18,7 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/results', function(req, res, next) {
+  console.log("here");
   res.send('respond with a resource');
 });
 
