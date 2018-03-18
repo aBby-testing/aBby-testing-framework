@@ -5,12 +5,16 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var simple_statistics = require('simple-statistics');
+var models = require('./models');
 
 var Sequelize = require('sequelize');
 var sequelize = new Sequelize('shallot_development', 'root', '', {
     host: 'localhost',
     dialect: 'mysql',
 });
+
+var db = sequelize.define('Visitor', {}, {freezeTableName: true
+    });
 
 var test = sequelize.authenticate()
     .then(function() {
@@ -24,6 +28,7 @@ var test = sequelize.authenticate()
 var index = require('./routes/index');
 var users = require('./routes/users');
 var results = require('./routes/results');
+var writeToDb = require('./routes/writeToDb');
 var landing = require('./routes/landing');
 
 var app = express();
@@ -46,6 +51,7 @@ app.use('/assets', express.static(path.join(__dirname,'/assets')));
 app.use('/', landing);
 app.use('/users', users);
 app.use('/results', results);
+app.use('/writeToDb', writeToDb);
 app.use('/index', index);
 
 // catch 404 and forward to error handler
