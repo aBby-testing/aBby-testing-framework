@@ -5,23 +5,20 @@ var uuidv4 = require('uuid/v4');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   var visitorCookie = req.cookies.visitor.id;
+
   if (!visitorCookie) {
-    visitorID = uuidv4();
-    
-    var visitCount = 0;
-    
-    var visitor = {
-      'id' : visitorID,
-      'visitCount' : visitCount
-    };
-        
-    res.cookie('visitor.id', visitorID);
+    visitorCookie = 0;
+    res.cookie('visitor.id', visitorCookie);
+    process.env.VISITOR_COUNT++;
   }
 
-  var index = chooseLayout(visitor.id);
+  console.log("visitCount: " + visitorCookie);
+
+  var index = chooseLayout(visitorCookie);
 
   console.log("welcome visitor " + visitorCookie);
-
+  console.log("type " + index );
+  res.cookie('visitCount', visitorCookie);
   res.render(index, { title: 'Express' });
 });
 
