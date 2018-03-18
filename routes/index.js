@@ -3,10 +3,10 @@ var router = express.Router();
 var uuidv4 = require('uuid/v4');
 
 router.get('/', function(req, res, next) {
-    res.render('./indexB', { title: 'Results' });
+    res.render('./indexA', { title: 'Results' });
 });
 
-router.get('/', function(req, res, next) {
+router.get('bucketed_page', function(req, res, next) {
 
 
   var visitorCookie = req.cookies.visitorCookie;
@@ -40,7 +40,7 @@ router.get('/', function(req, res, next) {
 });
 
 function chooseLayout(visitorID) {
-  return (visitorID % 2 ? 'indexA' : 'indexB');
+  return (visitorID % 2 ? '/indexA' : '/indexB');
 }
 
 module.exports = router;
