@@ -31,7 +31,7 @@ router.get('/', function(req, res, next) {
 
   res.cookie('visitorCookie', visitorCookie);
 
-  res.render('./results', { title: 'Express' });
+  res.render(index, { title: 'Express' });
 
 });
 
