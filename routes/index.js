@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/results', function(req, res, next) {
-  res.render('results', { title: 'Results' });
+  res.render('/templated-projection/results', { title: 'Results' });
 });
 
 module.exports = router;
